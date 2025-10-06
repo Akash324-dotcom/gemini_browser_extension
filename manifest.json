@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Context Extension",
+  "version": "1.0",
+  "description": "Ask Gemini about selected text directly on any webpage.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Gemini Context Extension",
+    "default_popup": "popup.html"
+  }
+}
